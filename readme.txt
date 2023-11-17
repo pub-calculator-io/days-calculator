@@ -1,6 +1,6 @@
 === Days Calculator by Calculator.iO ===
 Contributors: calculatorio
-Tags: 
+Tags: days between dates calculator, calculate days until event, workday counter tool, vacation countdown calculator, payment tracking calculator, project deadline calculator, educational planning tool, calculate weekdays and weekends, public holiday date calculator, daily countdown tool
 Requires at least: 5.0
 Tested up to: 6.4.0
 Stable tag: 1.0.0
