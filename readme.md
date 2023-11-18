@@ -1,4 +1,4 @@
-# Days Calculator WordPress Widget by [Calculator.iO](https://www.calculator.io/ "Calculator.iO Homepage")
+# Days Calculator Widget for WordPress
 
 The free days calculator makes it easy to figure out how many days it has been since some date. This day tracker can include or exclude weekends and holidays.
 
