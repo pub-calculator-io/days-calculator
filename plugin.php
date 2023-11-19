@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Days Calculator by www.calculator.io
+Plugin Name: CI Days calculator
 Plugin URI: https://www.calculator.io/days-calculator/
 Description: The free days calculator makes it easy to figure out how many days it has been since some date. This day tracker can include or exclude weekends and holidays.
 Version: 1.0.0

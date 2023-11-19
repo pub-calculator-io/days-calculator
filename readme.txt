@@ -1,4 +1,4 @@
-=== Days Calculator by www.calculator.io ===
+=== CI Days calculator ===
 Contributors: calculatorio
 Tags: days between dates calculator, calculate days until event, workday counter tool, vacation countdown calculator, payment tracking calculator, project deadline calculator, educational planning tool, calculate weekdays and weekends, public holiday date calculator, daily countdown tool
 Requires at least: 5.0
