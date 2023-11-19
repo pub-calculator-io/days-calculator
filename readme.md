@@ -7,7 +7,7 @@ The free days calculator makes it easy to figure out how many days it has been s
 
 ## Installation
 
-1. [Download](https://github.com/pub-calculator-io/age-calculator/archive/refs/heads/master.zip) the ZIP file of this repository.
+1. [Download](https://github.com/pub-calculator-io/days-calculator/archive/refs/heads/master.zip) the ZIP file of this repository.
 2. Upload the /days-calculator-master/ folder to the /wp-content/plugins/ directory.
 3. Activate the [Days Calculator](https://www.calculator.io/days-calculator/ "Days Calculator Homepage") plugin through the "Plugins" menu in WordPress.
 
