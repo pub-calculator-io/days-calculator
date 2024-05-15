@@ -13,34 +13,19 @@ function calculate() {
 	const hours = minutes / 60;
 	const days = Math.trunc(hours / 24);
 
-	results.unshift(plural(setCommas(days), 'd'));
+	results.unshift(plural(days, 'days:day:days:days:days:days'));
 
 	const holidays = getUserHolidays();
 
-	const {businessDays, weekendDays, holidayCount} =
-		countBusinessAndWeekendDays(dateFrom, dateTo, holidays);
-	results.push(plural(setCommas(businessDays), 'bd'));
-	results.push(plural(setCommas(weekendDays), 'wd'));
-	if(holidayCount) results.push(plural(setCommas(holidayCount), 'hd'));
+	const {weekdays, weekends, holidayCount} = countBusinessAndweekends(dateFrom, dateTo, holidays);
+	results.push(plural(weekdays, 'work days:work day:work days:work days:work days:work days'));
+	results.push(plural(weekends, 'weekend days:weekend day:weekend days:weekend days:weekend days:weekend days'));
+	if(holidayCount) results.push(plural(holidayCount, 'holiday days:holiday day:holiday days:holiday days:holiday days:holiday days'));
 
 	$('.result-age__text').innerHTML = '<div class="result-text">' + results.join('</div><div class="result-text"> ') + '</div>';
 
 	generateCalendar(dateFrom);
 	generateCalendar(dateTo, 'result-age--to');
-}
-
-function plural(number, label) {
-	/*Days*/
-	if (label === 'd') return number === 1 ? number + ' day' : number + ' days';
-
-	/*Weekend days*/
-	if (label === 'wd') return number === 1 ? number + ' weekend day' : number + ' weekend days';
-
-	/*Business days*/
-	if (label === 'bd') return number === 1 ? number + ' business day' : number + ' business days';
-
-	/*Holidays*/
-	if (label === 'hd') return number === 1 ? number + ' holiday' : number + ' holidays';
 }
 
 function generateCalendar(date, calendar = 'result-age--from') {
@@ -142,14 +127,14 @@ function getUserHolidays() {
 	return holidays;
 }
 
-function countBusinessAndWeekendDays(startDate, endDate, holidays) {
+function countBusinessAndweekends(startDate, endDate, holidays) {
 	// Convert the start and end dates to Date objects
 	startDate = new Date(startDate);
 	endDate = new Date(endDate);
 
 	// Initialize counters for business days and weekend days
-	let businessDays = 0;
-	let weekendDays = 0;
+	let weekdays = 0;
+	let weekends = 0;
 	let holidayCount = 0;
 
 	// Iterate through each day from the start date to the end date
@@ -158,14 +143,14 @@ function countBusinessAndWeekendDays(startDate, endDate, holidays) {
 		const dayOfWeek = startDate.getDay();
 		const dateString = (startDate.getMonth() + 1) + '.' + startDate.getDate();
 		if (dayOfWeek === 0 || dayOfWeek === 6) {
-			weekendDays++;
+			weekends++;
 		} else {
-			businessDays++;
+			weekdays++;
 		}
 
 		// Check if the current day is a holiday
 		if (holidays.includes(dateString)) {
-			businessDays--; // Subtract a business day if it's a holiday
+			weekdays--; // Subtract a business day if it's a holiday
 			holidayCount++;
 		}
 
@@ -175,13 +160,13 @@ function countBusinessAndWeekendDays(startDate, endDate, holidays) {
 
 	// If the end date is a weekend day, decrement the respective count
 	if (endDate.getDay() === 0 || endDate.getDay() === 6) {
-		weekendDays--;
+		weekends--;
 	} else {
-		businessDays--;
+		weekdays--;
 	}
 
 	// Return the counts
-	return {businessDays, weekendDays, holidayCount};
+	return {weekdays, weekends, holidayCount};
 }
 
 function convert() {
